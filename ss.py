@@ -58,3 +58,7 @@ aws ecs update-service \
 
 # Clean up temporary file
 rm /tmp/new_task_definition.json
+
+
+docker build --file Dockerfile --tag dbcon:latest --platform linux/arm64 ~/Documents/test
+
