@@ -35,7 +35,15 @@ def test_mongodb_connection():
     try:
         # Replace these with your actual MongoDB connection string
         client = MongoClient('mongodb://mongo-host:27017/')
-        db = client['mydatabase']
+        db = client['sansstone-auth']
+        # Add a new collection to MongoDB
+        db['test_collection'].insert_one({'name': 'John Doe', 'age': 30})
+
+        # List collections in the database
+        collections = db.list_collection_names()
+        print("Collections in the database:")
+        for collection in collections:
+            print(collection)
         print("Successfully connected to MongoDB!")
         client.close()
     except Exception as e:
