@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # Install Flask and pymongo
-RUN pip install Flask pymongo psycopg2
+RUN pip install Flask pymongo psycopg2-binary
 
 # Copy the Flask app file and the modified test_db_connections.py script
 COPY app.py .
