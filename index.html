@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Connection Test</title>
+</head>
+<body>
+    <h1>Database Connection Test</h1>
+    {% if postgres_connected %}
+        <p>PostgreSQL connected successfully!</p>
+    {% else %}
+        <p>Error connecting to PostgreSQL.</p>
+    {% endif %}
+    
+    {% if mongo_connected %}
+        <p>MongoDB connected successfully!</p>
+        <p>Collections in the database:</p>
+        <ul>
+            {% for collection in mongo_collections %}
+                <li>{{ collection }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Error connecting to MongoDB.</p>
+    {% endif %}
+</body>
+</html>
